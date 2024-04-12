@@ -1,3 +1,0 @@
-# import account_financial_report
-# import common_report_header
-import financial_report_new

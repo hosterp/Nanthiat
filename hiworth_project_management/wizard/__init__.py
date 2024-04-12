@@ -1,2 +1,0 @@
-import ir_att
-import res_partner
