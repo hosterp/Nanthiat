@@ -72,6 +72,7 @@
          'views/popup_notification.xml',
          'report/view_purchase_details.xml',
          'report/View_payment_details.xml',
+         'report/subcontractor_daily_report.xml',
 
 
 

@@ -461,7 +461,7 @@ class PartnerDailyStatement(models.Model):
 
 	payment_ids = fields.One2many('payments.payments', 'statement_id')
 	# others_ids = fields.One2many('other.attendance', 'others_id')
-
+	sub_contarctor_ids=fields.One2many('sub.contractor.daily.work','sub_contarctor_id')
 	purchase_ids = fields.Many2many('purchase.order', string="Purchase")
 	site_purchase_ids = fields.Many2many('site.purchase','partner_daily_statement_id',string="Material Request")
 	estimate_id = fields.Many2one('project.task', string="Estimation")
@@ -2226,4 +2226,24 @@ class TodaysWorkLineResources(models.Model):
 	@api.one
 	def unlink(self):
 		return super(TodaysWorkLineResources, self).unlink()
-	
+
+class SubcontractorDailyWork(models.Model):
+	_name = 'sub.contractor.daily.work'
+	_rec_name = 'contractor'
+
+	sub_contarctor_id = fields.Many2one('partner.daily.statement')
+	date=fields.Date('Date')
+	project_id = fields.Many2one('project.project', 'Project')
+	detail_of_work = fields.Char(string="Detail of Work")
+	no_labour = fields.Float('No of Labours')
+	wage = fields.Float('Daily Wage')
+	attendance = fields.Boolean(string="Attendance")
+	item_of_work = fields.Many2one('item.of.work', string="Item of Work Engaged")
+	contractor = fields.Char( string="contractor")
+	total = fields.Float(string="Total", compute='_compute_total')
+
+
+	@api.depends('wage','no_labour')
+	def _compute_total(self):
+		for rec in self:
+			rec.total = rec.wage * rec.no_labour

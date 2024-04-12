@@ -385,6 +385,35 @@
 							</page>
 						</notebook>
 					</group>
+					<group string="Subcontractor's Daily Work">
+						<notebook>
+							<page string="Subcontractor's Daily Work">
+									<field name="sub_contarctor_ids" nolabel="1">
+								<tree editable="bottom">
+									<field name="date" string="Date"/>
+									<field name="project_id" string="Project"/>
+									<field name="contractor" string="Contractor"/>
+									<field name="item_of_work"/>
+									<field name="detail_of_work" string="Discription"/>
+									<field name="no_labour" string="No of Labours"/>
+									<field name="attendance"/>
+									<field name="wage"/>
+									<field name="total"/>
+<!--									<field name="material" options="{'no_create':1}" widget="many2many_tags"/>-->
+<!--	&lt;!&ndash;								<field name="qty_estimate"/>&ndash;&gt;-->
+<!--	&lt;!&ndash;								<field name="unit"/>&ndash;&gt;-->
+<!--	&lt;!&ndash;								<field name="rate"/>&ndash;&gt;-->
+<!--	&lt;!&ndash;								<field name="estimate_cost"/>&ndash;&gt;-->
+<!--									<field name="start_date"/>-->
+<!--									<field name="finish_date"/>-->
+<!--									<field name="subcontractor"/>-->
+<!--									<field name="remarks_new"/>-->
+
+							</tree>
+									</field>
+							</page>
+						</notebook>
+					</group>
 					<group>
 						<field name="view_details" string="View Details"/>
 					</group>
